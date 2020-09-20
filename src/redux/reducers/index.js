@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
-import Home from './home';
+
+import  allProductsList  from './allProductsList';
 
 const allReducers =  combineReducers(
     {
-       home: Home 
+       allProductsList
     }
 );
 
