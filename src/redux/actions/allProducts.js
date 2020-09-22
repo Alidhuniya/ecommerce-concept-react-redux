@@ -69,10 +69,10 @@ export const fetchProducts = () => {
     }
   }
   
-  export const fetchProductsSuccess = users => {
+  export const fetchProductsSuccess = id => {
     return {
       type: actionTypes.FETCH_PRODUCTS_SUCCESS,
-      payload: users
+      payload: id
     }
   }
   
