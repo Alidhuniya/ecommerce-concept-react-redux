@@ -14,6 +14,7 @@ class App extends Component {
            
             <Route path='/:product_id' component={SingleProduct} />
           </Switch>
+		  <AllProducts />
 			</Fragment>
 		);
 	}

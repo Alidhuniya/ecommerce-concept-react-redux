@@ -2,8 +2,9 @@
 import thunk from 'redux-thunk';
 import { createStore, applyMiddleware, compose } from 'redux';
 import allReducers from "./../reducers/index";
+// import logger from 'redux-logger';
 
-// const middleware = process.env.NODE_ENV !== 'production' ?
+// const immutable = process.env.NODE_ENV !== 'production' ?
 //   [require('redux-immutable-state-invariant').default(), thunk] :
 //   [thunk];
 

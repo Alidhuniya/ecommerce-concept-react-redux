@@ -1,10 +1,9 @@
 import { combineReducers } from 'redux';
-
-import  allProductsList  from './allProductsList';
+import productsReducer from './allProductsReducer';
 
 const allReducers =  combineReducers(
     {
-       allProductsList
+    productLists: productsReducer,
     }
 );
 

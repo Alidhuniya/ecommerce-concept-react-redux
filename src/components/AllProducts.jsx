@@ -1,53 +1,58 @@
+import React, {Component, Fragment} from "react";
+import {connect} from "react-redux";
+import { fetchProducts } from './../redux/actions/allProducts';
+import { Link } from 'react-router-dom';
 
-import React, { Component, Fragment } from "react";
-import { connect } from 'react-redux';
-import { allProducts } from './../redux/actions/allProducts';
-// import { Link } from 'react-router-dom';
-
-
-class allProductsLists extends Component {
-    componentDidMount() {
-        this.props.allProducts();
-        console.log(this.props.allProducts())
-      }
-  render(){
-    const { products } = this.props
-  console.log(products);
-   
-    //  const list = products.map(product => {
-    //     return (
-    //       <div  key={product.id}>
-    //         <div >
-    //           <Link to={'/' + product.fields.id}>
-    //             <span >{product.fields.offertitle}</span>
-    //           </Link>
-    //           <p>{product.fields.offerdec}</p>
-    //         </div>
-    //       </div>
-    //     )
-    //   })
-
-    return (
-      <div>
-        <div>
-          <h4>Home</h4>
-          {/* {list} */}
-        </div>
-      </div>
-    )
+ class Allitems extends Component {
+  componentDidMount() {
+    this.props.fetchProducts();
+    
   }
-}
-
-const mapStateToProps = (state) => {
-  return {
-    products: state.data
-  }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        allProducts : () => dispatch(allProducts())
+    render() {
+        // const {x, increment, decrement, reset} = this.props;
+        
+        return (
+          this.props.items.loading ? (
+            <h2>Loading</h2>
+          ) : this.props.items.error ? (
+            <h2>{this.props.items.error}</h2>
+          ) : (
+            <div>
+              <h2>Products List</h2>
+              <div>
+                {this.props.items &&
+                  this.props.items.products &&
+                  this.props.items.products.map(product => 
+                  
+                    <div>
+                    <Link to={'/' + product.id}>
+                  <p>{product.fields.offertitle}</p>
+                  </Link>
+                  <p>{product.fields.offerdec}</p>
+                  <p>{product.fields.offerprice}</p>
+                  </div>
+                
+                  )}
+              </div>
+            </div>
+          )
+        )
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(allProductsLists)
+const mapStateToProps = state => {
+  return {
+    items: state.productLists
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchProducts: () => dispatch(fetchProducts())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps )(Allitems);
+
+
+
