@@ -25,7 +25,7 @@ import { Link } from 'react-router-dom';
                   this.props.items.products.map(product => 
                   
                     <div>
-                    <Link to={'/' + product.id}>
+                    <Link to={'/' + product.sys.id}> {/* the product.sys.id is from cms api not from js route path which is in APP.js file  */}
                   <p>{product.fields.offertitle}</p>
                   </Link>
                   <p>{product.fields.offerdec}</p>

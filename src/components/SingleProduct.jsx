@@ -12,15 +12,16 @@ import { fetchProducts } from './../redux/actions/allProducts';
         // const {x, increment, decrement, reset} = this.props;
         
         return (
-          <div>
-              single
-          </div>
+           <div>
+               Single Post
+           </div>
         )
     }
 }
 
 const mapStateToProps = (state, ownProps) => {
     let id = ownProps.match.params.product_id;
+    
   return {
     items: state.productLists.products.find(items => items.sys.id === id)
    
