@@ -83,10 +83,3 @@ export const fetchProducts = () => {
     }
   }
 
-  // load more
-
-  export const loadMore = () => {
-    return {
-      type: actionTypes.LOAD_MORE
-    }
-  }

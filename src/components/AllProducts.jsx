@@ -22,7 +22,7 @@ import { Link } from 'react-router-dom';
               <div>
                 {items &&
                   items.products &&
-                  items.products.slice(0, this.props.visible).map(product => 
+                  items.products.map(product => 
                   
                     <div>
                     <Link to={'/' + product.sys.id}> {/* the product.sys.id is from cms api not from js route path which is in APP.js file  */}
