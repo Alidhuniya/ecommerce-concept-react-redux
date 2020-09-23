@@ -9,31 +9,37 @@ import { Link } from 'react-router-dom';
     
   }
     render() {
-       
+      const {items} = this.props;
         
         return (
-          this.props.items.loading ? (
+          items.loading ? (
             <h2>Loading</h2>
-          ) : this.props.items.error ? (
-            <h2>{this.props.items.error}</h2>
+          ) : items.error ? (
+            <h2>{items.error}</h2>
           ) : (
             <div>
               <h2>Products List</h2>
               <div>
-                {this.props.items &&
-                  this.props.items.products &&
-                  this.props.items.products.map(product => 
+                {items &&
+                  items.products &&
+                  items.products.map(product => 
                   
                     <div>
                     <Link to={'/' + product.sys.id}> {/* the product.sys.id is from cms api not from js route path which is in APP.js file  */}
-                  <p>{product.fields.offertitle}</p>
+                  <h1>Title:{product.fields.offertitle}</h1>
+                  <h5>Description:{product.fields.offerdec}</h5>
+                  <p>Price:{product.fields.offerprice}</p>
                   </Link>
-                  <p>{product.fields.offerdec}</p>
-                  <p>{product.fields.offerprice}</p>
+                  <hr />
+                  <br />
+                  <br />
+                  
                   </div>
                 
                   )}
+                 
               </div>
+            
             </div>
           )
         )

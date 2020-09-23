@@ -9,17 +9,17 @@ import { fetchProducts } from './../redux/actions/allProducts';
     
   }
     render() {
-        // const {x, increment, decrement, reset} = this.props;
+        const {items} = this.props;
       
 
-            const product = this.props.items ? (
+            const product = items ? (
                  <Fragment>
                  <h2>single Product List</h2>
     
-    <p>{this.props.items && this.props.items.fields.offertitle}</p>
-   
-    <p>{this.props.items && this.props.items.fields.offerdec}</p>
-    <p>{ this.props.items && this.props.items.fields.offerprice}</p>
+    <h1>Title:{items.fields.offertitle}</h1>
+   <img style = {{width: "200px"}} src ={items.fields.offerimg.fields.file.url} alt="product-img" />
+    <h5>Description:{ items.fields.offerdec}</h5>
+    <p>Price:{  items.fields.offerprice}</p>
                  </Fragment>
              ) : (
                <div >Loading singleProduct...</div>
@@ -30,6 +30,7 @@ import { fetchProducts } from './../redux/actions/allProducts';
            
 
           <div>{product}</div>
+           
               
         )
     }
