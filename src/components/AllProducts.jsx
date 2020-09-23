@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
     
   }
     render() {
-        // const {x, increment, decrement, reset} = this.props;
+       
         
         return (
           this.props.items.loading ? (

@@ -10,11 +10,27 @@ import { fetchProducts } from './../redux/actions/allProducts';
   }
     render() {
         // const {x, increment, decrement, reset} = this.props;
+      
+
+            const product = this.props.items ? (
+                 <Fragment>
+                 <h2>single Product List</h2>
+    
+    <p>{this.props.items && this.props.items.fields.offertitle}</p>
+   
+    <p>{this.props.items && this.props.items.fields.offerdec}</p>
+    <p>{ this.props.items && this.props.items.fields.offerprice}</p>
+                 </Fragment>
+             ) : (
+               <div >Loading singleProduct...</div>
+             )
+         
         
         return (
-           <div>
-               Single Post
-           </div>
+           
+
+          <div>{product}</div>
+              
         )
     }
 }
@@ -24,6 +40,7 @@ const mapStateToProps = (state, ownProps) => {
     
   return {
     items: state.productLists.products.find(items => items.sys.id === id)
+    // items: state.productLists
    
   }
 }
