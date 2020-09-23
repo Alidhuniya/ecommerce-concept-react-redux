@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import { fetchProducts } from './../redux/actions/allProducts';
 import { Link } from 'react-router-dom';
 
- class Allitems extends Component {
+ class AllProducts extends Component {
   componentDidMount() {
     this.props.fetchProducts();
     
@@ -58,7 +58,7 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps )(Allitems);
+export default connect(mapStateToProps, mapDispatchToProps )(AllProducts);
 
 
 

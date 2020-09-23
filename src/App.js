@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import "./App.scss";
 import { Route,  Switch } from 'react-router-dom';
 import SingleProduct from "./components/SingleProduct";
-import Allitems from './components/AllProducts';
+import AllProducts from './components/AllProducts';
 
 
 class App extends Component {
@@ -10,7 +10,7 @@ class App extends Component {
 		return (
 			<Fragment>
 			 <Switch>
-            <Route exact path='/' component={Allitems}/>
+            <Route exact path='/' component={AllProducts}/>
            
             <Route path='/:product_id' component={SingleProduct} />
           </Switch>
