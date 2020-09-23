@@ -25,6 +25,8 @@ const initialState = {
           products: [],
           error: action.payload
         }
+
+       
       default: return state
     }
   }

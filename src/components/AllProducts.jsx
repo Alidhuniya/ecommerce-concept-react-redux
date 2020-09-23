@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from "react";
 import {connect} from "react-redux";
-import { fetchProducts } from './../redux/actions/allProducts';
+import { fetchProducts} from './../redux/actions/allProducts';
 import { Link } from 'react-router-dom';
 
  class AllProducts extends Component {
@@ -22,7 +22,7 @@ import { Link } from 'react-router-dom';
               <div>
                 {items &&
                   items.products &&
-                  items.products.map(product => 
+                  items.products.slice(0, this.props.visible).map(product => 
                   
                     <div>
                     <Link to={'/' + product.sys.id}> {/* the product.sys.id is from cms api not from js route path which is in APP.js file  */}
@@ -33,30 +33,37 @@ import { Link } from 'react-router-dom';
                   <hr />
                   <br />
                   <br />
-                  
-                  </div>
                 
+                  </div>
+
                   )}
-                 
+
               </div>
             
             </div>
+            
           )
+
+          
         )
     }
 }
 
 const mapStateToProps = state => {
   return {
-    items: state.productLists
+    items: state.productLists,
+    
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchProducts: () => dispatch(fetchProducts())
+    fetchProducts: () => dispatch(fetchProducts()),
+    
   }
 }
+
+
 
 export default connect(mapStateToProps, mapDispatchToProps )(AllProducts);
 

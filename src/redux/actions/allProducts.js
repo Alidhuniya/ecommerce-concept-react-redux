@@ -82,3 +82,11 @@ export const fetchProducts = () => {
       payload: error
     }
   }
+
+  // load more
+
+  export const loadMore = () => {
+    return {
+      type: actionTypes.LOAD_MORE
+    }
+  }
