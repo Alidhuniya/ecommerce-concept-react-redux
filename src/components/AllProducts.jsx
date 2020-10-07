@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from "react";
 import {connect} from "react-redux";
-import { fetchProducts} from './../redux/actions/allProducts';
+import { fetchProducts, AddCart} from './../redux/actions/allProducts';
 import { Link } from 'react-router-dom';
 
  class AllProducts extends Component {
@@ -16,7 +16,7 @@ import { Link } from 'react-router-dom';
             <h2>Loading</h2>
           ) : items.error ? (
             <h2>{items.error}</h2>
-          ) : (
+          ) :  (
             <div>
               <h2>Products List</h2>
               <div>
@@ -25,11 +25,17 @@ import { Link } from 'react-router-dom';
                   items.products.map(product => 
                   
                     <div>
-                    <Link to={'/' + product.sys.id}> {/* the product.sys.id is from cms api not from js route path which is in APP.js file  */}
+                    <Link to={`/product/${product.sys.id}`}> {/* the product.sys.id is from cms api not from js route path which is in APP.js file  */}
                   <h1>Title:{product.fields.offertitle}</h1>
                   <h5>Description:{product.fields.offerdec}</h5>
-                  <p>Price:{product.fields.offerprice}</p>
                   </Link>
+                  <p>Price:{product.fields.offerprice}</p>
+                  <span
+                    style={{ cursor: "pointer" }}
+                    onClick={() => this.props.AddCart(product)}
+                  >
+                    Add Cart
+                  </span>
                   <hr />
                   <br />
                   <br />
@@ -59,7 +65,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     fetchProducts: () => dispatch(fetchProducts()),
-    
+    AddCart: (items) => dispatch(AddCart(items))
   }
 }
 

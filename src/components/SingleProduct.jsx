@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from "react";
 import {connect} from "react-redux";
 import { fetchProducts } from './../redux/actions/allProducts';
+import { AddCart} from "../redux/actions/allProducts";
 
 
  class SingleProduct extends Component {
@@ -20,6 +21,13 @@ import { fetchProducts } from './../redux/actions/allProducts';
    <img style = {{width: "200px"}} src ={items.fields.offerimg.fields.file.url} alt="product-img" />
     <h5>Description:{ items.fields.offerdec}</h5>
     <p>Price:{  items.fields.offerprice}</p>
+    <span
+            className="badge badge-primary"
+            style={{ cursor: "pointer" }}
+            onClick={() => this.props.AddCart(items)}
+          >
+            Add Cart
+          </span>
                  </Fragment>
              ) : (
                <div >Loading singleProduct...</div>
@@ -37,7 +45,7 @@ import { fetchProducts } from './../redux/actions/allProducts';
 }
 
 const mapStateToProps = (state, ownProps) => {
-    let id = ownProps.match.params.product_id;
+    let id = ownProps.match.params.id;
     
   return {
     items: state.productLists.products.find(items => items.sys.id === id)
@@ -48,7 +56,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchProducts: () => dispatch(fetchProducts())
+    fetchProducts: () => dispatch(fetchProducts()),
+    AddCart: (items) => dispatch(AddCart(items))
   }
 }
 

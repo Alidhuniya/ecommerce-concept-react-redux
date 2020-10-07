@@ -1,47 +1,7 @@
-// import axios from "axios";
+
 import { Client } from './../../Client';
 import { actionTypes } from './actionTypes';
 
-// export const fetchUsers = () => {
-//     return (dispatch) => {
-//       dispatch(fetchUsersRequest())
-//       axios
-//       Client.getEntries({
-//                     'content_type': 'offertshirt',
-//                     'limit': 3,
-//                   })
-//         .then(response => {
-//           // response.data is the users
-//           const users = response.items
-//           dispatch(fetchUsersSuccess(users))
-//         })
-//         .catch(error => {
-//           // error.message is the error message
-//           dispatch(fetchUsersFailure(error.message))
-//         })
-//     }
-//   }
-
-// regular fetch
-//   export const fetchUsers = () => {
-//       return (dispatch) => {
-//           dispatch(fetchUsersRequest())
-//           Client.getEntries({
-//             'content_type': 'offertshirt',
-//             'limit': 3,
-//           })
-//         //   .then(res => res.json())
-//           .then(res2 => {
-//               const users = res2.items
-//               dispatch(fetchUsersSuccess(users))
-//           })
-//           .catch(error => {
-//             dispatch(fetchUsersFailure(error.message))
-//           })
-//       }
-//   }
-
-// regular async await
 
 export const fetchProducts = () => {
    
@@ -83,3 +43,36 @@ export const fetchProducts = () => {
     }
   }
 
+
+  export function GetNumberCart(){
+    return{
+        type: actionTypes.GET_NUMBER_CART
+    }
+}
+
+export function AddCart(payload){
+    return {
+        type: actionTypes.ADD_CART,
+        payload
+    }
+}
+
+export function DeleteCart(payload){
+    return{
+        type:actionTypes.DELETE_CART,
+        payload
+    }
+}
+
+export function IncreaseQuantity(payload){
+    return{
+        type: actionTypes.INCREASE_QUANTITY,
+        payload
+    }
+}
+export function DecreaseQuantity(payload){
+    return{
+        type:actionTypes.DECREASE_QUANTITY,
+        payload
+    }
+}
