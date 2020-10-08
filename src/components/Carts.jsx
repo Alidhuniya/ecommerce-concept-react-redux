@@ -16,56 +16,63 @@ function Cart({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) {
 
   return (
     <div className="row">
-      <div className="col-md-12">
+      <div style= {{ display: "flex",
+    justifyContent: "center"}}>
         <table className="table">
           <thead>
             <tr>
-              <th></th>
+              
               <th>Name</th>
               <th>Image</th>
               <th>Price</th>
               <th>Quantity</th>
               <th>Total Price</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
             {ListCart.map((item, key) => {
               return (
                 <tr key={key}>
-                  <td>
-                    <i
-                      className="badge badge-danger"
-                      onClick={() => DeleteCart(key)}
-                    >
-                      X
-                    </i>
-                  </td>
+                  
                   <td>{item.name}</td>
                   <td>
                     <img
                       src={item.image}
-                      style={{ width: "100px", height: "80px" }}
+                      style={{ width: "200px", height: "100px" }}
                     />
                   </td>
                   <td>{item.price} $</td>
-                  <td>
+                  <td style={{textAalign: "center",
+                     fontSize: "2.3rem"}}>
                     <span
-                      className="btn btn-primary"
-                      style={{ margin: "2px" }}
+                     
+                      style={{  marginLeft: "0.5rem",
+                    color: "blue",fontWeight: "900", cursor: "pointer" }}
                       onClick={() => DecreaseQuantity(key)}
                     >
                       -
                     </span>
-                    <span className="btn btn-info">{item.quantity}</span>
+                    <span style={{ marginLeft: "1rem",
+                     marginRight: "1rem"}}>{item.quantity}</span>
                     <span
-                      className="btn btn-primary"
-                      style={{ margin: "2px" }}
+                      style={{ marginRight: "0.5rem",
+    color: "blue",
+    fontWeight: "900", cursor: "pointer" }}
                       onClick={() => IncreaseQuantity(key)}
                     >
                       +
                     </span>
                   </td>
                   <td>{TotalPrice(item.price, item.quantity)} $</td>
+                  <td>
+                    <i
+                     style={{ cursor: "pointer" }}
+                      onClick={() => DeleteCart(key)}
+                    >
+                     <i className="fas fa-trash-alt"></i>
+                    </i>
+                  </td>
                 </tr>
               );
             })}
