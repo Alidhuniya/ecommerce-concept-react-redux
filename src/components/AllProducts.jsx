@@ -38,9 +38,9 @@ import "../sass/3-layout/_allproducts.scss";
                   >
                     Add to Cart
                   </span></p>
-                  <div className="products__detail">
-                  <Link to={`/product/${product.sys.id}`}> {/* the product.sys.id is from cms api not from js route path which is in APP.js file  */}
-                  <span>View Details</span>
+                  <div className = "products__view" >
+                  <Link className="products__detail" to={`/product/${product.sys.id}`}> {/* the product.sys.id is from cms api not from js route path which is in APP.js file  */}
+                  View Details
                   </Link>
                   </div>
                   </div>
