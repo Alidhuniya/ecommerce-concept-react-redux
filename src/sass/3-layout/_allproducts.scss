@@ -85,6 +85,15 @@
     .products__id {
         display: block;
     }
+
+    .products__content {
+        margin-left: 1.5rem;
+    }
+
+    .products-heading {
+        font-size: 2.3rem;
+        margin-top: 4rem;
+    }
 }
 
 @media all and (max-width: 500px) {
@@ -101,6 +110,11 @@
 
     .products__content {
         margin-left: 1.5rem;
+    }
+
+    .products-heading {
+        font-size: 1.5rem;
+        margin-top: 3rem;
     }
     
 }

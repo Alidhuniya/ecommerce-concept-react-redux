@@ -19,7 +19,7 @@ import "../sass/3-layout/_allproducts.scss";
             <h2>{items.error}</h2>
           ) :  (
             <div>
-              <h2 className="products-heading">Products List</h2>
+              <h2 className="products-heading">Shopping Cart Concept - Products List</h2>
               <div>
                 {items &&
                   items.products &&
