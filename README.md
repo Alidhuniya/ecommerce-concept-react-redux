@@ -1,6 +1,4 @@
-# mobileStore 
+# react-redux shopping Store
 
-# project is going on
-
-## See here [live]()
+## See here [live](https://react-redux-shoppingcart.netlify.app/)
 
