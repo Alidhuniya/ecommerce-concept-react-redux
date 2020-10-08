@@ -1,0 +1,22 @@
+.navWrapper {
+    background-color: #9a96ff;
+    position: sticky;
+    top: 0;
+}
+.headerNav {
+    display: flex;
+    justify-content: center;
+}
+
+.headerNav__item + .headerNav__item {
+  margin-left: 3.7rem;  
+}
+
+.headerNav__link {
+    font-size: 2rem;
+    color: #560101;
+
+    &:hover {
+        color: #fff;
+    }
+}

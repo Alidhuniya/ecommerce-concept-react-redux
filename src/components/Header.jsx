@@ -1,21 +1,21 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import  {connect} from  'react-redux'
+import "../sass/3-layout/_header.scss";
 export class Header extends Component {
     render() {
         return (
             
-            <div className="row">
-            {console.log(this.props.numberCart)}
-              <div className="col-md-12">
-                  <nav className="navbar  navbar-dark bg-dark ">
-                        <ul className="nav">
-                            <li className="nav-item" ><Link to="/" className="nav-link active">Products</Link></li>
-                            <li className="nav-item"><Link to="/carts" className="nav-link">Carts : {this.props.numberCart}</Link></li>
+           
+              <div className = "navWrapper">
+                  <nav className = "nav">
+                        <ul className="headerNav">
+                            <li className="headerNav__item" ><Link to="/" className="headerNav__link">Products</Link></li>
+                            <li className="headerNav__item"><Link to="/carts" className="headerNav__link"><i class="fas fa-cart-arrow-down"></i> {this.props.numberCart}</Link></li>
                         </ul>
                   </nav>
               </div>
-            </div>
+
         )
     }
 }
