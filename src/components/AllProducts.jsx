@@ -2,6 +2,7 @@ import React, {Component, Fragment} from "react";
 import {connect} from "react-redux";
 import { fetchProducts, AddCart} from './../redux/actions/allProducts';
 import { Link } from 'react-router-dom';
+import "../sass/3-layout/_allproducts.scss";
 
  class AllProducts extends Component {
   componentDidMount() {
@@ -18,25 +19,33 @@ import { Link } from 'react-router-dom';
             <h2>{items.error}</h2>
           ) :  (
             <div>
-              <h2>Products List</h2>
+              <h2 className="products-heading">Products List</h2>
               <div>
                 {items &&
                   items.products &&
                   items.products.map(product => 
                   
-                    <div>
-                    <Link to={`/product/${product.sys.id}`}> {/* the product.sys.id is from cms api not from js route path which is in APP.js file  */}
-                  <h1>Title:{product.fields.offertitle}</h1>
-                  <h5>Description:{product.fields.offerdec}</h5>
-                  </Link>
-                  <p>Price:{product.fields.offerprice}</p>
-                  <span
-                    style={{ cursor: "pointer" }}
+                    <div className = "products">
+                    <div className="products__id"> 
+                    <img className = "products__img"  src ={product.fields.offerimg.fields.file.url} alt="product-img" />
+                    <div className = "products__content">
+                  <h1 className = "products__h1">Title:{product.fields.offertitle}</h1>
+                 
+                  <h5 className = "products__h5">Description:{product.fields.offerdec}</h5>
+                  <p className = "products__p">Price: ${product.fields.offerprice} <span
+                  className = "products__span"
                     onClick={() => this.props.AddCart(product)}
                   >
-                    Add Cart
-                  </span>
-                  <hr />
+                    Add to Cart
+                  </span></p>
+                  <div className="products__detail">
+                  <Link to={`/product/${product.sys.id}`}> {/* the product.sys.id is from cms api not from js route path which is in APP.js file  */}
+                  <span>View Details</span>
+                  </Link>
+                  </div>
+                  </div>
+                  </div>
+                 
                   <br />
                   <br />
                 
