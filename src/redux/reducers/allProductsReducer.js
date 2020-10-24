@@ -60,10 +60,12 @@ const initialState = {
           };
           state.Carts.push(_cart);
         }
+       
       }
       return {
         ...state,
         numberCart: state.numberCart + 1
+        
       };
     case actionTypes.INCREASE_QUANTITY:
       state.numberCart++;

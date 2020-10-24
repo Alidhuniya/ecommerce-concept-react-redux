@@ -54,10 +54,12 @@ export function AddCart(payload){
     return {
         type: actionTypes.ADD_CART,
         payload
-    }
+    };
+   
 }
 
 export function DeleteCart(payload){
+  
     return{
         type:actionTypes.DELETE_CART,
         payload
